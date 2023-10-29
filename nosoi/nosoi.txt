@@ -6,3 +6,84 @@ Cave C 15
 , 	FIELD  20
 . 	BARRENS  20
 # 	Clearing (no enemies) 10
+
+
+<head>
+    <title>NOSOI</title>
+    <meta charset="ASCII">
+    <style>
+    html, body {
+        height: 100%;
+        margin: 0;
+    }
+    
+    body {
+    }
+    canvas {
+        background:white;
+        display: flex;
+        align-items: center;
+    }
+    </style>
+<body>
+<canvas width="101" height="101" id="game"></canvas>
+<script>
+    var canvas = document.getElementById('game');
+    var context = canvas.getContext('2d');
+    var grid = 9;
+    var avatar = {
+        x:51,
+        y:51,
+        dx:1,
+        dy:1,
+    }
+    var tile ={
+
+    }
+
+    document.addEventListener('keydown', function(e) {
+
+  // left arrow key
+  if (e.which === 37) {
+    avatar.x -= avatar.dx;
+  }
+  // up arrow key
+  else if (e.which === 38 && snake.dy === 0) {
+    avatar.y += avatar.dy;
+  }
+  // right arrow key
+  else if (e.which === 39 && snake.dx === 0) {
+    avatar.x += avatar.dx;
+  }
+  // down arrow key
+  else if (e.which === 40 && snake.dy === 0) {
+    avatar.y -= avatar.dy;
+  }
+});
+</script>
+</body>
+
+https://codepen.io/rcyou/pen/QEObEZ
+npm install jquery
+
+https://www.tutorialspoint.com/How-to-hide-HTML-element-with-JavaScript
+
+
+function makeRows(rows, cols) {
+  path.style.setProperty('--pgrid-rows', rows);
+  path.style.setProperty('--pgrid-cols', cols);
+  for (i = 0; i < (rows * cols); i++) {
+    let step = document.createElement("div");
+    path.appendChild(step)
+    step.id = 's' + i;
+  };
+};
+makeRows(16, 16);
+
+var avatar = '@';
+
+const position=s5;
+
+position.innerText=avatar;
+
+position.hidden = false;
