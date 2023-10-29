@@ -1,0 +1,8 @@
+avatar @
+Ruins R 15
+Cave C 15
+
+; 	FOREST 20
+, 	FIELD  20
+. 	BARRENS  20
+# 	Clearing (no enemies) 10
