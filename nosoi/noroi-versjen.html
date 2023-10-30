@@ -1,44 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" type="text/css" href="noroi-versjen.css" /> 
+</head>
+<body>
 <p1>NOSOI</1>
-    <P>
+<P>
 <div id = "base"> 
-  <div id = button-container>
-    <button onclick="togglehide('rules')">Rules</button>
-    <button onclick="togglehide('inventory')">Inventory</button>
-  </div>
-  <p>
-    <div id="container">    
-    </div>
-    <div id="rules">
-      <p>
-      <p1>Rules:</p1>
-      <p>
-        <p2>The world has been struck by calamity and contamination is spreading across the land! You have left your village in search of uncontaminated water </p2>
-      <p>
-        <p3>Use directional keys ←↑→↓ to move across the map</p3>
-        <p>
-    </div>
-    
-    <div id="inventory">        
-    </div>
-    
-    <div id = "tempdiv">
+   <div id = button-container>
+      <button onclick="togglehide('rules')">Rules</button>
+      <button onclick="togglehide('inventory')">Inventory</button>
+   </div>
+   <p>
+   <div class="world">
+      <div id = "map"></div>
+      <div id = "path"></div>
+      <div id="rules">
+         <p>
+         <p1>Rules:</p1>
+         <p>
+         <p2>The world has been struck by calamity and contamination is spreading across the land! You have left your village in search of uncontaminated water </p2>
+         <p>
+         <p3>Use directional keys ←↑→↓ to move across the map</p3>
+         <p>
+      </div>
+   </div>
+   <div class="menu">
+      <div id="inventory"></div>
+   </div>
+   <div id = "tempdiv">
+      <div id = "temptext"></div>
+      <div id = "tempbuttoncontainer">
+         <button id = "closebutton", onclick="togglehide('tempdiv')">X</button>
+      </div>
+   </div>
 
-      <div id = "temptext">
+   <div id ="fight">
+      <div id = "fighttext"></div>
+      <div id = "fightbuttons">
+         <button onclick="slap()">Slap</button>
+         <button id = "fightbuttonblade", onclick="blade()">Use Blade</button>
+         <button id = "fightbuttontea", onclick="tea()">Brew Tea</button>
+         <button onclick="run()">Run</button>
       </div>
-            <div id = "tempbuttoncontainer">
-      <button id = "closebutton", onclick="togglehide('tempdiv')">X</button>
-      </div>
-    </div>
-  
-  <div id ="fight">
-     <div id = "fighttext">
-     </div>
-     <div id = "fightbuttons">
-      <button onclick="slap()">Slap</button>
-      <button id = "fightbuttonblade", onclick="blade()">Use Blade</button>
-      <button id = "fightbuttontea", onclick="tea()">Brew Tea</button>
-      <button onclick="run()">Run</button>
-     </div>
-  </div>
-  <div id="path"></div>
+   </div>
 </div>
+<script src="noroi-versjen.js"></script> 
+</body>
+</html>
