@@ -1,23 +1,12 @@
-const container = document.getElementById("container");
-const inv = document.getElementById("inventory");
-const temptext = document.getElementById("temptext");
-const tempdiv = document.getElementById("tempdiv");
-const fighttext = document.getElementById("fighttext");
-const fightdiv = document.getElementById("fight");
-const fightbuttontea = document.getElementById("fightbuttontea");
-const fightbuttonblade = document.getElementById("fightbuttonblade");
+const map = document.getElementById("map");
 const path = document.getElementById("path");
-
-var playerhp = 10;
-var monsterhp = 10;
-
-inv.innerText = "Inventory\n ---------------------------------\n";
-inv.appendChild(document.createTextNode("Hope\n"));
-//inv.appendChild(document.createTextNode("Shard of Sorrow\n"));
-//inv.appendChild(document.createTextNode("Die of Disease\n"));
-//inv.appendChild(document.createTextNode("Vial of Vice\n"));
-//inv.appendChild(document.createTextNode("Veil of Violence\n"));
-//inv.appendChild(document.createTextNode("Mask of Madness\n"));
+//const itm = document.getElementById("items");
+//const temptext = document.getElementById("temptext");
+//const tempdiv = document.getElementById("tempdiv");
+//const fighttext = document.getElementById("fighttext");
+//const fightdiv = document.getElementById("fight");
+//const fightbuttontea = document.getElementById("fightbuttontea");
+//const fightbuttonblade = document.getElementById("fightbuttonblade");
 
 function togglehide(divname) {
   var x = document.getElementById(divname);
@@ -27,18 +16,108 @@ function togglehide(divname) {
   else {
     x.style.display = "none";
   }
-} 
+}
+
+function makeRows(rows, cols) {
+  map.style.setProperty('--grid-rows', rows);
+  map.style.setProperty('--grid-cols', cols);
+  for (c = 0; c < (rows * cols); c++) {
+    let cell = document.createElement("div");
+    var e = Math.random();
+    if (e < 0.1){
+      // Clearing 10% chance
+      cell.innerText= ('\u25ce');
+      cell.style.color = '#00b4d6';
+    }
+    else if (e < 0.3){
+      // Barrens 20% chance
+      cell.innerText=('\u26C6');
+      cell.style.color = '#c28e60';
+    }
+    else if (e < 0.5){
+      // Field 20% chance
+      cell.innerText= ('\udb85\udd10');
+      cell.style.color = '#dee286';
+    }
+    else if (e < 0.7){
+      // Forest 20% chance
+      cell.innerText= ('\udb86\udc97');
+      cell.style.color = '#71a28e';
+    }
+    else if (e < 0.85){
+      // Ruins 15% chance
+      cell.innerText= ('\udb82\udfa2');
+      cell.style.color = '#aba8b4';
+    }
+    else{
+      // Caves 15% chance
+      cell.innerText= ('\ue2a6');
+      cell.style.color = '#465058';
+    }
+    map.appendChild(cell)
+    cell.id = 'c' + c;
+    cell.hidden = false;
+  };
+};
+makeRows(16, 16);
+
+function makeRows2(rows, cols) {
+  path.style.setProperty('--grid-rows', rows);
+  path.style.setProperty('--grid-cols', cols);
+  for (i = 0; i < (rows * cols); i++) {
+    let step = document.createElement("div");
+    path.appendChild(step).className="grid-item2";
+    step.id = 's' + i;
+  };
+};
+makeRows2(16, 16);
+
+var avatar = '@';
+const position=s7;
+position.innerText=avatar;
+position.style.color = '#cc3e44';
+position.style.background = '#081620';
+
+var playerhp = 10;
+var monsterhp = 10;
+
+itm.innerText = "X";
+//itm.appendChild(document.createTextNode("Hope\n"));
+//itm.appendChild(document.createTextNode("Shard of Sorrow\n"));
+//itm.appendChild(document.createTextNode("Die of Disease\n"));
+//itm.appendChild(document.createTextNode("Vial of Vice\n"));
+//itm.appendChild(document.createTextNode("Veil of Violence\n"));
+//itm.appendChild(document.createTextNode("Mask of Madness\n"));
+
+/*
+document.body.addEventListener('keydown', function(event) 
+                                { 
+        const key = event.key; 
+        switch (key) { 
+            case "ArrowLeft": 
+                str = 'Left'; 
+                break; 
+            case "ArrowRight": 
+                str = 'Right'; 
+                break; 
+            case "ArrowUp": 
+                str = 'Up'; 
+                break; 
+            case "ArrowDown": 
+                str = 'Down'; 
+                break; 
+        } 
 
 function event(){
 temptext.textContent ="Event text here";
 tempdiv.style.display = "block";
-inv.appendChild(document.createTextNode("Itemname\n"))
+itm.appendChild(document.createTextNode("Itemname\n"))
 }
 
 function eventTeaSet(){
 temptext.textContent ="As you enter the cave you discover an old hermit standing over a bubbling pot. She offers you some 'tea'. \n\nAs you finish and turn to leave she pushes a warm clay pot into your hands.";
 tempdiv.style.display = "block";
-inv.appendChild(document.createTextNode("Hermit's an-Tea-contamination Set\n"));
+itm.appendChild(document.createTextNode("Hermit's an-Tea-contamination Set\n"));
 fightbuttontea.style.display = "inline-block";
 }
 
@@ -46,14 +125,14 @@ fightbuttontea.style.display = "inline-block";
 function eventWep1(){
 temptext.textContent ="As the sun sets you notice a gleam from the ashes of the ruins.";
 tempdiv.style.display = "block";
-inv.appendChild(document.createTextNode("Rusty Blade\n"));
+itm.appendChild(document.createTextNode("Rusty Blade\n"));
 fightbuttonblade.style.display = "inline-block";
 }
 
 function excavate() {
     var e = Math.random();
     if (e < 0.1){
-        inv.appendChild(document.createTextNode("Item\n"));
+        itm.appendChild(document.createTextNode("Item\n"));
     }
 }
 
@@ -94,69 +173,4 @@ function run(){
   window.alert("Successfully ran away!");
   fightdiv.style.display = "none";  
 }
-
-
-
-
-function makeRows(rows, cols) {
-  container.style.setProperty('--grid-rows', rows);
-  container.style.setProperty('--grid-cols', cols);
-  for (c = 0; c < (rows * cols); c++) {
-    let cell = document.createElement("div");
-    var e = Math.random();
-    if (e < 0.1){
-      // Clearing 10% chance
-      cell.innerText= ('○');
-      cell.style.color = 'SeaGreen';
-    }
-    else if (e < 0.3){
-      // Barrens 20% chance
-      cell.innerText=('⥎');
-      cell.style.color = 'Sienna';
-    }
-    else if (e < 0.5){
-      // Field 20% chance
-      cell.innerText= ('▩');
-      cell.style.color = 'LightGreen';
-    }
-    else if (e < 0.7){
-      // Forest 20% chance
-      cell.innerText= ('♣');
-      cell.style.color = 'ForestGreen';
-    }
-    else if (e < 0.85){
-      // Ruins 15% chance
-      cell.innerText= ('♜');
-      cell.style.color = 'Peru';
-    }
-    else{
-      // Caves 15% chance
-      cell.innerText= ('▲');
-      cell.style.color = 'Maroon';
-    }
-    container.appendChild(cell)
-    cell.id = 'c' + c;
-    cell.hidden = false;
-  };
-};
-makeRows(16, 16);
-
-function makeRows2(rows, cols) {
-  path.style.setProperty('--pgrid-rows', rows);
-  path.style.setProperty('--pgrid-cols', cols);
-  for (i = 0; i < (rows * cols); i++) {
-    let step = document.createElement("div");
-    path.appendChild(step).className="grid-item2";
-    step.id = 's' + i;
-  };
-};
-makeRows2(16, 16);
-
-var avatar = '@';
-
-const position=s7;
-
-position.innerText=avatar;
-//position.body.style.background = 'grey';
-
-position.hidden = false;
+*/
