@@ -13,6 +13,7 @@ var monsterhp = 10;
 
 inv.innerText = "Inventory\n ---------------------------------\n";
 inv.appendChild(document.createTextNode("Hope\n"));
+//items below to be added into events
 //inv.appendChild(document.createTextNode("Shard of Sorrow\n"));
 //inv.appendChild(document.createTextNode("Die of Disease\n"));
 //inv.appendChild(document.createTextNode("Vial of Vice\n"));
@@ -29,6 +30,7 @@ function togglehide(divname) {
   }
 } 
 
+
 function event(){
 temptext.textContent ="Event text here";
 tempdiv.style.display = "block";
@@ -41,7 +43,6 @@ tempdiv.style.display = "block";
 inv.appendChild(document.createTextNode("Hermit's an-Tea-contamination Set\n"));
 fightbuttontea.style.display = "inline-block";
 }
-
 
 function eventWep1(){
 temptext.textContent ="As the sun sets you notice a gleam from the ashes of the ruins.";
@@ -157,6 +158,6 @@ var avatar = '@';
 const position=s7;
 
 position.innerText=avatar;
-//position.body.style.background = 'grey';
+position.style.backgroundColor = 'white';
 
 position.hidden = false;
