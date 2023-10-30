@@ -103,11 +103,12 @@ button{
 
 #path {
   display: grid;
-  grid-template-rows: repeat(var(--grid-rows), 1fr);
-  grid-template-columns: repeat(var(--grid-cols), 1fr);
+  grid-template-rows: repeat(var(--pgrid-rows), 1fr);
+  grid-template-columns: repeat(var(--pgrid-cols), 1fr);
   position: relative;
   width: 501px;
   height:501px;
   margin: auto;
 }
+
 
