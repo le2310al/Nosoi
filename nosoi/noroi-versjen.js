@@ -1,4 +1,5 @@
-const container = document.getElementById("container");
+const map = document.getElementById("map");
+const path = document.getElementById("path");
 const inv = document.getElementById("inventory");
 const temptext = document.getElementById("temptext");
 const tempdiv = document.getElementById("tempdiv");
@@ -6,14 +7,70 @@ const fighttext = document.getElementById("fighttext");
 const fightdiv = document.getElementById("fight");
 const fightbuttontea = document.getElementById("fightbuttontea");
 const fightbuttonblade = document.getElementById("fightbuttonblade");
-const path = document.getElementById("path");
+
+function makeRows(rows, cols) {
+  map.style.setProperty('--grid-rows', rows);
+  map.style.setProperty('--grid-cols', cols);
+  for (c = 0; c < (rows * cols); c++) {
+    let cell = document.createElement("div");
+    var e = Math.random();
+    if (e < 0.1){
+      // Clearing 10% chance
+      cell.innerText= ('○');
+      cell.style.color = 'SeaGreen';
+    }
+    else if (e < 0.3){
+      // Barrens 20% chance
+      cell.innerText=('⥎');
+      cell.style.color = 'Sienna';
+    }
+    else if (e < 0.5){
+      // Field 20% chance
+      cell.innerText= ('▩');
+      cell.style.color = 'LightGreen';
+    }
+    else if (e < 0.7){
+      // Forest 20% chance
+      cell.innerText= ('♣');
+      cell.style.color = 'ForestGreen';
+    }
+    else if (e < 0.85){
+      // Ruins 15% chance
+      cell.innerText= ('⌂');
+      cell.style.color = 'Peru';
+    }
+    else{
+      // Caves 15% chance
+      cell.innerText= ('\ue2a6');
+      cell.style.color = 'Maroon';
+    }
+    map.appendChild(cell)
+    cell.id = 'c' + c;
+    cell.hidden = false;
+  };
+};
+makeRows(16, 16);
+
+function makeRows2(rows, cols) {
+  path.style.setProperty('--grid-rows', rows);
+  path.style.setProperty('--grid-cols', cols);
+  for (i = 0; i < (rows * cols); i++) {
+    let step = document.createElement("div");
+    path.appendChild(step).className="grid-item2";
+    step.id = 's' + i;
+  };
+};
+makeRows2(16, 16);
+
+var avatar = '@';
+const position=s7;
+position.innerText=avatar;
 
 var playerhp = 10;
 var monsterhp = 10;
 
 inv.innerText = "Inventory\n ---------------------------------\n";
 inv.appendChild(document.createTextNode("Hope\n"));
-//items below to be added into events
 //inv.appendChild(document.createTextNode("Shard of Sorrow\n"));
 //inv.appendChild(document.createTextNode("Die of Disease\n"));
 //inv.appendChild(document.createTextNode("Vial of Vice\n"));
@@ -30,7 +87,6 @@ function togglehide(divname) {
   }
 } 
 
-
 function event(){
 temptext.textContent ="Event text here";
 tempdiv.style.display = "block";
@@ -43,6 +99,7 @@ tempdiv.style.display = "block";
 inv.appendChild(document.createTextNode("Hermit's an-Tea-contamination Set\n"));
 fightbuttontea.style.display = "inline-block";
 }
+
 
 function eventWep1(){
 temptext.textContent ="As the sun sets you notice a gleam from the ashes of the ruins.";
@@ -95,69 +152,3 @@ function run(){
   window.alert("Successfully ran away!");
   fightdiv.style.display = "none";  
 }
-
-
-
-
-function makeRows(rows, cols) {
-  container.style.setProperty('--grid-rows', rows);
-  container.style.setProperty('--grid-cols', cols);
-  for (c = 0; c < (rows * cols); c++) {
-    let cell = document.createElement("div");
-    var e = Math.random();
-    if (e < 0.1){
-      // Clearing 10% chance
-      cell.innerText= ('○');
-      cell.style.color = 'SeaGreen';
-    }
-    else if (e < 0.3){
-      // Barrens 20% chance
-      cell.innerText=('⥎');
-      cell.style.color = 'Sienna';
-    }
-    else if (e < 0.5){
-      // Field 20% chance
-      cell.innerText= ('▩');
-      cell.style.color = 'LightGreen';
-    }
-    else if (e < 0.7){
-      // Forest 20% chance
-      cell.innerText= ('♣');
-      cell.style.color = 'ForestGreen';
-    }
-    else if (e < 0.85){
-      // Ruins 15% chance
-      cell.innerText= ('♜');
-      cell.style.color = 'Peru';
-    }
-    else{
-      // Caves 15% chance
-      cell.innerText= ('▲');
-      cell.style.color = 'Maroon';
-    }
-    container.appendChild(cell)
-    cell.id = 'c' + c;
-    cell.hidden = false;
-  };
-};
-makeRows(16, 16);
-
-function makeRows2(rows, cols) {
-  path.style.setProperty('--pgrid-rows', rows);
-  path.style.setProperty('--pgrid-cols', cols);
-  for (i = 0; i < (rows * cols); i++) {
-    let step = document.createElement("div");
-    path.appendChild(step).className="grid-item2";
-    step.id = 's' + i;
-  };
-};
-makeRows2(16, 16);
-
-var avatar = '@';
-
-const position=s7;
-
-position.innerText=avatar;
-position.style.backgroundColor = 'white';
-
-position.hidden = false;
