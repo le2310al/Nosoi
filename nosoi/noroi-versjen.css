@@ -1,172 +1,170 @@
 @font-face {
-  font-family: "propo";
-  src:
-    local("propo");
-    url("propo.ttf") format("truetype");
+   font-family: "propo";
+   src: url("propo.ttf");
 }
 
 body {
-  font-family: "propo";
-  background: #081620;
-  color: #f6fafd;
-  text-align: center;
+   font-family: "propo";
+   background: #081620;
+   color: #f6fafd;
+   text-align: center;
 }
+
 :root {
-  --grid-cols: 1;
-  --grid-rows: 1;
+   --grid-cols: 1;
+   --grid-rows: 1;
 }
 
 #button-container{
-  position: relative;
-  }
+   position: relative;
+}
 
 .interface {
-  display: block;
-  position: relative;
-  width: 801px;
-  height:501px;
-  margin: auto;
+   display: block;
+   position: relative;
+   width: 801px;
+   height:501px;
+   margin: auto;
 }
-.dialog{
-  display: block;
-  position: absolute;
-  float: left;
-  width: 150px;
-  height:501px;
-  margin: auto;
-  background: #f6fafd;
-  color: #081620;
-  opacity: 10%;
 
+.dialog{
+   display: block;
+   position: absolute;
+   float: left;
+   width: 150px;
+   height:501px;
+   margin: auto;
+   background: #f6fafd;
+   color: #081620;
+   opacity: 10%;
 }
 
 .world {
-  display: inline-block;
-  position: relative;
-  width: 501px;
-  height:501px;
-  margin: auto;
+   display: inline-block;
+   position: relative;
+   width: 501px;
+   height:501px;
+   margin: auto;
 }
 
 #map {
-  display: grid;
-  grid-template-rows: repeat(var(--grid-rows), 1fr);
-  grid-template-columns: repeat(var(--grid-cols), 1fr);
-  width: 501px;
-  height:501px;
-  margin: auto;
-  z-index: 1;
-  position: absolute;
+   display: grid;
+   grid-template-rows: repeat(var(--grid-rows), 1fr);
+   grid-template-columns: repeat(var(--grid-cols), 1fr);
+   width: 501px;
+   height:501px;
+   margin: auto;
+   z-index: 1;
+   position: absolute;
 }
 
 #path {
-  display: grid;
-  grid-template-rows: repeat(var(--grid-rows), 1fr);
-  grid-template-columns: repeat(var(--grid-cols), 1fr);
-  width: 501px;
-  height: 501px;
-  margin: auto;
-  z-index: 2;
-  position: absolute;
-  }
+   display: grid;
+   grid-template-rows: repeat(var(--grid-rows), 1fr);
+   grid-template-columns: repeat(var(--grid-cols), 1fr);
+   width: 501px;
+   height: 501px;
+   margin: auto;
+   z-index: 2;
+   position: absolute;
+}
 
 #rules {
-  display: none;
-  background: #f6fafd;
-  width: 501px;
-  height: 501px;
-  margin: none;
-  position: absolute;
-  z-index: 3;
-  text-align: center;
-  color: #205781;
+   display: none;
+   background: #f6fafd;
+   width: 501px;
+   height: 501px;
+   margin: none;
+   position: absolute;
+   z-index: 3;
+   text-align: center;
+   color: #205781;
 }
 
 .menu {
-  display: inline-block;
-  position: absolute;
-  float: right;
-  width: 150px;
-  height:501px;
-  margin: auto;
-  background: #212e37;
-  color: #f6fafd;
+   display: inline-block;
+   position: absolute;
+   float: right;
+   width: 150px;
+   height:501px;
+   margin: auto;
+   color: #f6fafd;
 }
 
 #inventory{
-
+   background: #212e37;
 }
 
 #items {
-  display: block;
-  position: relative;
-  margin: auto;
-  z-index: 2;
-  height: 100px;
-  width: 150px;
-  margin: auto;
-  background: #081620;
-  color: #f6fafd;
-  }
+   display: block;
+   position: relative;
+   margin: auto;
+   z-index: 2;
+   height: 100px;
+   width: 150px;
+   margin: auto;
+   background: #212e37;
+   color: #f6fafd;
+}
 
 button{
-  display: inline-block;
-  position: relative;
-  margin: auto;
+   display: inline-block;
+   position: relative;
+   margin: auto;
 }
 
 #closebutton{
-display:none;
-position:absolute;
-top: 0px;
-right:0px;
-color: darkred;
+   display:none;
+   position:absolute;
+   top: 0px;
+   right:0px;
+   color: darkred;
 }
 
 #tempdiv{
-display:none;
-border: 2px solid;
-background: linen;
-width: 501px;
-height: auto;
-margin: auto;
-position: relative;
-white-space: pre-line;
-display:none;
-border: 2px solid;
-background: linen;
-width: 501px;
-height: auto;
-margin: auto;
-position: relative;
-white-space: pre-line;
+   display:none;
+   border: 2px solid;
+   background: linen;
+   width: 501px;
+   height: auto;
+   margin: auto;
+   position: relative;
+   white-space: pre-line;
+   display:none;
+   border: 2px solid;
+   background: linen;
+   width: 501px;
+   height: auto;
+   margin: auto;
+   position: relative;
+   white-space: pre-line;
 }
 
 #fight{
-display:none;
-border: 2px solid;
-background: linen;
-width: 501px;
-height: auto;
-margin: auto;
-position: relative;
-white-space: pre-line;
-display:none;
-border: 2px solid;
-background: linen;
-width: 501px;
-height: auto;
-margin: auto;
-position: relative;
-white-space: pre-line;
+   display:none;
+   border: 2px solid;
+   background: linen;
+   width: 501px;
+   height: auto;
+   margin: auto;
+   position: relative;
+   white-space: pre-line;
+   display:none;
+   border: 2px solid;
+   background: linen;
+   width: 501px;
+   height: auto;
+   margin: auto;
+   position: relative;
+   white-space: pre-line;
 }
 
 #fightbuttons{
-display:flex;
-display:flex;
+   display:flex;
+   display:flex;
 }
 
 #fightbuttontea, #fightbuttonblade{
-display:none;
-display:none;
+   display:none;
+   display:none;
 }

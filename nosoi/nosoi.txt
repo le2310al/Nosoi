@@ -87,3 +87,19 @@ const position=s5;
 position.innerText=avatar;
 
 position.hidden = false;
+
+
+eventTarget.addEventListener("keydown", (KeyboardEvent)){
+   if(KeyboardEvent.key == "ArrowLeft"){
+      position+=1
+   }
+   if(KeyboardEvent.key == "ArrowRight"){
+      
+   }
+   if(KeyboardEvent.key == "ArrowUp"){
+      
+   }
+   if(KeyboardEvent.key == "ArrowDown"){
+
+   }
+}
